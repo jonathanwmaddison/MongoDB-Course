@@ -8,3 +8,11 @@ mongoose.connection
   .on('error', ((error) => {
     console.warn('warning', error);
   }));
+
+beforeEach((done) => {
+  //delete all records in collection
+  mongoose.connection.collections.users.drop(() => {
+    done()
+  });
+
+});
